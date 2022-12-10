@@ -1,0 +1,12 @@
+696af0a6-c050-4ae7-9682-a96702c19bcf
+
+terraform fmt -recursive
+terraform init -backend-config="../Environment/dev/we2/backend.tf" --backend-config="subscription_id=33f8a9e4-73ff-41d3-9be0-db8e46816437"
+terraform plan -var-file="../Environment/dev/we2/terraform.tfvars"
+
+terraform apply -var-file="../Environment/dev/we2/terraform.tfvars"
+
+terraform init -backend-config="../Environment/dev/we2/hub.backend.tf" --backend-config="subscription_id=33f8a9e4-73ff-41d3-9be0-db8e46816437"
+terraform plan -var-file="../Environment/dev/we2/hub.terraform.tfvars"
+
+we have 5 subnets need to associate with 5 nsgs

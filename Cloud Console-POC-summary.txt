@@ -1,0 +1,53 @@
+
+
+HUB - RG, Vnet with 2 subnets and the firewall. Not sure about this, please confirm with Ed. ---
+Spoke:
+•	RG          ---done
+•	Vnet with 5 subnets  ---done
+o	1 sys
+o	1 www
+o	1 app
+o	1 db
+
+	Private endpoint to Atlas  --pending
+o	1 AppGw    ---done
+o	Vnet is /16, Subnets are /24 - depending on the requirement/usage of nodes, we can decide on the CIDR of the subnets.  ---done
+o	Corresponding RTB/NSG for each subnets   -----pending
+•	Public IP - 1   -------done
+o	Associated to the AppGw   ------done
+•	AppGw with default configuration
+o	The conf will be updated when linking it with the AKS
+•	AKS   -------done
+
+o	Private cluster with 3 node pools  ------done
+	1 sys
+	2 user
+•	web nodepool   
+•	app nodepool   
+
+
+o	Dependencies:
+	Managed Identities - 2 with required role assignments -----pending
+	Private DNS zone       ---- done 
+
+•	To have links with the AKS Vnet and the CS (Control Service - JH, etc) Vnet  -----pending
+
+	SSH keys to login to the nodes (new/existing depending on the environment)   --pending
+
+	ACR    ---done
+	AppGw to be associated with it. ---done aks
+•	Storage Account with 2 FS --------done
+o	<proj>-<env>-conf - ------done
+o	<proj>-<env>-logs ---------done
+
+
+
+
+*******************************************************************************
+•	Below are not yet implemented, but can be considered
+o	Application Insights and log analytics workspace
+o	KeyVault to manage the secrets/certs
+o	Private endpoint connectivity to ACR and the Storage Account
+o	Keeping the ACR part of Control Services environment, instead of CC subscription.
+
+network security group , route table
